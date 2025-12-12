@@ -875,6 +875,10 @@ class IQ_Option:
         logging.error('get_remaning(self,duration) ERROR duration')
         return "ERROR duration"
 
+    def get_expiration(self, duration):
+        timestamp = int(self.api.timesync.server_timestamp)
+        return get_expiration_time(timestamp, duration)
+   
     def buy_by_raw_expirations(self, price, active, direction, option, expired):
 
         self.api.buy_multi_option = {}
