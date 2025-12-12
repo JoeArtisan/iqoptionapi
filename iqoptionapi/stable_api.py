@@ -340,6 +340,14 @@ class IQ_Option:
 
         binary.join(), digital.join(), other.join()
         return self.OPEN_TIME
+        
+    def get_all_open_time_binary(self):
+        # all pairs binary openned
+        self.OPEN_TIME = nested_dict(3, dict)
+        binary = threading.Thread(target=self.__get_binary_open)
+        binary.start()
+        binary.join()
+        return self.OPEN_TIME
 
     # --------for binary option detail
 
